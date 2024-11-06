@@ -1,0 +1,54 @@
+/* Reset default margin dan padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Styling dasar body: warna latar belakang hitam dan teks putih */
+body {
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+/* Navbar Styling */
+/* Menggunakan Flexbox untuk mengatur elemen secara horizontal dan berjajar rapi */
+.navbar {
+    display: flex;
+    justify-content: space-around; /* Memberi jarak yang sama antara ikon */
+    align-items: center; /* Memposisikan ikon di tengah secara vertikal */
+    background-color: black; /* Latar belakang navbar berwarna hitam */
+    padding: 15px; /* Memberi sedikit ruang di dalam navbar */
+}
+
+/* Setiap item dalam navbar, posisinya diatur secara relatif */
+.nav-item {
+    position: relative; /* Relatif digunakan agar notifikasi bisa diposisikan absolut di atasnya */
+}
+
+/* Styling Ikon */
+/* Ikon Boxicons diatur untuk ukuran yang lebih besar dan warna putih agar terlihat di latar hitam */
+.nav-item i {
+    font-size: 40px; /* Ukuran ikon 40px */
+    color: white; /* Warna ikon putih */
+    cursor: pointer; /* Menambahkan efek pointer saat diarahkan ke ikon */
+}
+
+/* Profil dengan Notifikasi */
+/* Mengatur posisi ikon profil secara relatif agar notifikasi bisa ditempatkan absolut */
+.profile-icon {
+    position: relative;
+}
+
+/* Titik Notifikasi */
+/* Titik merah diletakkan absolut di pojok kanan atas ikon profil */
+.notification-dot {
+    position: absolute; /* Titik merah berada di atas ikon profil */
+    top: 0; /* Posisi di atas */
+    right: 0; /* Posisi di kanan */
+    width: 10px; /* Ukuran titik notifikasi */
+    height: 10px;
+    background-color: red; /* Warna titik merah */
+    border-radius: 50%; /* Membuat titik menjadi bulat sempurna */
+}
