@@ -1,8 +1,8 @@
 <?php
 // Database connection
 $servername = "localhost";
-$username = "your_db_username";  // Replace with your database username
-$password = "your_db_password";  // Replace with your database password
+$username = "root";  // Default username for XAMPP
+$password = "";      // Default password for XAMPP (empty string)
 $dbname = "user_database";
 
 // Create connection
@@ -203,14 +203,15 @@ $conn->close();
             <input type="text" id="username" name="username" required>
             
             <label for="password">Password</label>
-            <input type="password" id="password" name="password" required>
+            <input type="password" id="loginPassword" name="password" required>
+            <input type="checkbox" onclick="togglePassword('loginPassword')"> Show Password
 
             <button type="submit" name="login">Login</button>
         </form>
         <?php if ($loginMessage): ?>
-            <p class="message"><?php echo $loginMessage; ?></p>
+            <p><?php echo $loginMessage; ?></p>
         <?php endif; ?>
-        <a href="#signupForm" class="toggle-link">Don't have an account? Sign up</a>
+        <a href="#signupForm" onclick="toggleForm()">Don't have an account? Sign up</a>
     </div>
 
     <!-- Sign-Up Form -->
@@ -224,33 +225,42 @@ $conn->close();
             <input type="email" id="email" name="email" required>
 
             <label for="password">Password</label>
-            <input type="password" id="password" name="password" required>
+            <input type="password" id="signupPassword" name="password" required>
+            <input type="checkbox" onclick="togglePassword('signupPassword')" style=""> Show Password
 
             <button type="submit" name="signup">Sign Up</button>
         </form>
         <?php if ($signupMessage): ?>
-            <p class="message"><?php echo $signupMessage; ?></p>
+            <p><?php echo $signupMessage; ?></p>
         <?php endif; ?>
-        <a href="#loginForm" class="toggle-link">Already have an account? Login</a>
+        <a href="#loginForm" onclick="toggleForm()">Already have an account? Login</a>
     </div>
 </div>
 
 <script>
-    // JavaScript to toggle between forms
-    const loginForm = document.getElementById("loginForm");
-    const signupForm = document.getElementById("signupForm");
-    const loginLink = loginForm.querySelector(".toggle-link");
-    const signupLink = signupForm.querySelector(".toggle-link");
+    // JavaScript to toggle between login and sign-up forms
+    function toggleForm() {
+        const loginForm = document.getElementById("loginForm");
+        const signupForm = document.getElementById("signupForm");
 
-    loginLink.addEventListener("click", () => {
-        loginForm.style.display = "none";
-        signupForm.style.display = "block";
-    });
+        if (loginForm.style.display === "none") {
+            loginForm.style.display = "block";
+            signupForm.style.display = "none";
+        } else {
+            loginForm.style.display = "none";
+            signupForm.style.display = "block";
+        }
+    }
 
-    signupLink.addEventListener("click", () => {
-        signupForm.style.display = "none";
-        loginForm.style.display = "block";
-    });
+    // JavaScript function to show/hide password
+    function togglePassword(passwordFieldId) {
+        const passwordField = document.getElementById(passwordFieldId);
+        if (passwordField.type === "password") {
+            passwordField.type = "text";
+        } else {
+            passwordField.type = "password";
+        }
+    }
 </script>
 
 </body>
