@@ -226,7 +226,7 @@ $conn->close();
 
             <label for="password">Password</label>
             <input type="password" id="signupPassword" name="password" required>
-            <input type="checkbox" onclick="togglePassword('signupPassword')" style=""> Show Password
+            <input type="checkbox" onclick="togglePassword('signupPassword')" > Show Password
 
             <button type="submit" name="signup">Sign Up</button>
         </form>
